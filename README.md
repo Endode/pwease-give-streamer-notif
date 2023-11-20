@@ -8,7 +8,7 @@ Supports YouTube ~~and Twitch~~
 Twitch support is currently a bit broken, it can work, but I think if a streamer has a previous live stream on their channel then it'll trick the program into thinking they're live
 
 ### Usage
-## *FREQUENCY IS NOT IMPLEMENTED YET
+## FREQUENCY IS NOT IMPLEMENTED YET
 ```console
 $ pwease-give-streamer-notif <username> <platform> <username2> <platform2> [ <frequency> ]
 ```
