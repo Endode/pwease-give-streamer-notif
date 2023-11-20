@@ -16,8 +16,8 @@ impl Version {
 }
 
 pub const VERSION: Version = Version {
-    major: 0,
-    minor: 1,
+    major: 1,
+    minor: 0,
     revision: 0,
 };
 
