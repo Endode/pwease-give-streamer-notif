@@ -66,7 +66,6 @@ async fn main() {
     println!("{} v{}", global::PROGRAM_NAME, global::VERSION.get_string());
     let mut args = std::env::args();
     args.next();
-    // TODO: Support for multiple streamers, maybe even a config file that contains a list of streamers
     let mut streamers: Vec<Streamer> = vec![];
     if args.len() < 2 {
         // println!("Usage: pwease-give-streamer-notif <username> <platform> [ <frequency> ]");
