@@ -25,7 +25,8 @@ fn string_to_platform(platform: &str) -> Platform {
 fn get_platform_url(username: &str, platform: &Platform) -> String {
     match platform {
         Platform::YouTube => format!("https://www.youtube.com/{}/live", username),
-        Platform::Twitch => format!("https://www.twitch.tv/{}", username),
+        // Platform::Twitch => format!("https://www.twitch.tv/{}", username),
+        Platform::Twitch => format!("https://static-cdn.jtvnw.net/previews-ttv/live_user_{}-440x248.jpg", username),
         _ => String::new(),
     }
 }
@@ -48,8 +49,22 @@ impl Streamer {
     async fn check_streaming(&mut self) {
         #[cfg(debug_assertions)]
         println!("Checking if [{}] is live on [{:?}]", self.username, self.platform);
-        let response = reqwest::get(get_platform_url(self.username.as_str(), &self.platform)).await.unwrap();
-        if response.text().await.unwrap().contains("isLiveBroadcast") {
+        let client = reqwest::Client::new();
+        let response = client.get(get_platform_url(self.username.as_str(), &self.platform)).send().await.unwrap();
+        let now_streaming: bool;
+        match self.platform {
+            Platform::YouTube => {
+                now_streaming = response.text().await.unwrap().contains("isLiveBroadcast")
+            }
+            Platform::Twitch => {
+                now_streaming = response.url().path().contains("previews-ttv")
+            }
+            _ => {
+                now_streaming = false
+            }
+        }
+
+        if now_streaming {
             if !self.streaming {
                 self.streaming = true;
                 #[cfg(debug_assertions)]
