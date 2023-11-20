@@ -6,10 +6,12 @@ Runs in the background and sends a notification when a streamer is streaming
 Supports YouTube and Twitch
 
 ### Usage
+## *FREQUENCY IS NOT IMPLEMENTED YET
 ```console
-$ pwease-give-streamer-notif <username> <platform> [ <frequency> ]
+$ pwease-give-streamer-notif <username> <platform> <username2> <platform2> [ <frequency> ]
 ```
 #### Examples
+## FREQUENCY IS NOT IMPLEMENTED YET
 Checks to see if "tsoding" is streaming on Twitch every 10 minutes
 ```console
 $ pwease-give-streamer-notif tsoding twitch 10m
