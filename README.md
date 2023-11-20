@@ -28,7 +28,7 @@ $ pwease-give-streamer-notif x_programmergal_x youtube
 ```
 
 ### Building
-Rust and Cargo is required
+Rust and Cargo are required
 
 The following command builds the project in release mode
 ```console
