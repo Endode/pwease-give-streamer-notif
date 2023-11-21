@@ -5,6 +5,8 @@ Runs in the background and sends a notification when a streamer is streaming
 
 Supports YouTube and Twitch
 
+Note: Twitch itself can be slow to update the stream thumbnail preview, which is what this program uses to determine whether a streamer is live or not. So it may take a few minutes to update
+
 ### Usage
 ## FREQUENCY IS NOT IMPLEMENTED YET
 ```console
